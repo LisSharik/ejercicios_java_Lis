@@ -64,23 +64,24 @@ public class Course {
 
         }
 
-        return listAllStudents;
+        return "========== Courses list ==========\n" + listAllStudents;
 
     }
 
-    public String removeStudent(int idStudent){
+    public void removeStudent(int idStudent){
         String message = "";
         if (this.students.removeIf(student -> student.getId() == idStudent)){
             message = "The student has been removed";
+
         }else {
             message = "The student hasn't been found";
         }
 
-        return message;
+        JOptionPane.showMessageDialog(null, message);
     }
 
     @Override
     public String toString() {
-        return "Code: " + code + " - Name: " + name + "\n";
+        return "Code: " + code + " - Name: " + name;
     }
 }
