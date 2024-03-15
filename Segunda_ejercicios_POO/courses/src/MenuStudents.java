@@ -1,9 +1,14 @@
 import javax.swing.*;
 
 public class MenuStudents {
-    CourseManagnament objManagnament = new CourseManagnament();
+   private CourseManagnament objManagnament ;
+
+    public MenuStudents(CourseManagnament objManagnament) {
+        this.objManagnament = objManagnament;
+    }
+
     public void menuStudents(int code){
-        Course course = objManagnament.searchForCode(code);
+        Course course = this.objManagnament.searchForCode(code);
 
         System.out.println(course);
         if(course == null){
@@ -13,11 +18,11 @@ public class MenuStudents {
             boolean flag = true;
             try {
                 do {
-                    String option = JOptionPane.showInputDialog("""
-                            ========== Administrator Courses ==========
+                    String option = JOptionPane.showInputDialog( "========== Administrator " +course.getName() + "==========\n" + """
                             1. Add student
                             2. List students
-                            3. Exit
+                            3. Remove student
+                            4. Exit
                         """);
 
                     if (option == null){
@@ -31,10 +36,13 @@ public class MenuStudents {
                                 break;
 
                             case "2":
-                                course.listStudents();
+                                JOptionPane.showMessageDialog(null,course.listStudents());
                                 break;
 
                             case "3":
+                                course.removeStudent(Integer.parseInt(JOptionPane.showInputDialog(course.listStudents()+ "Enter student id")));
+                                break;
+                            case "4":
                                 flag = false;
                                 break;
 
