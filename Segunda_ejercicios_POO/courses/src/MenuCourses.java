@@ -1,7 +1,11 @@
 import javax.swing.*;
 
 public class MenuCourses {
-    CourseManagnament objManagnament = new CourseManagnament();
+   private CourseManagnament objManagnament;
+
+    public MenuCourses(CourseManagnament objManagnament) {
+        this.objManagnament = objManagnament;
+    }
 
     public void menuCourses (){
         boolean flag = true;
@@ -22,11 +26,11 @@ public class MenuCourses {
                         case "1":
                             int code = Integer.parseInt(JOptionPane.showInputDialog("Enter the course code")) ;
                             String nameCourse = JOptionPane.showInputDialog("Enter the course name");
-                           objManagnament.addCourse(code, nameCourse);
+                            this.objManagnament.addCourse(code, nameCourse);
                             break;
 
                         case "2":
-                            objManagnament.listCourse();
+                            this.objManagnament.listCourse();
                             break;
 
                         case "3":
