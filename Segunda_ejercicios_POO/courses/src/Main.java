@@ -2,8 +2,9 @@ import javax.swing.*;
 
 public class Main {
     public static void main(String[] args){
-        MenuCourses menuCourses = new MenuCourses();
-        MenuStudents menuStudents = new MenuStudents();
+        CourseManagnament objCoursesMagnament = new CourseManagnament();
+        MenuCourses menuCourses = new MenuCourses(objCoursesMagnament);
+        MenuStudents menuStudents = new MenuStudents(objCoursesMagnament);
 
         boolean flagMain = true;
 
@@ -27,8 +28,7 @@ public class Main {
                             break;
 
                         case "2":
-
-                            menuStudents.menuStudents(Integer.parseInt(JOptionPane.showInputDialog("Enter the code of course"))  );
+                            menuStudents.menuStudents(Integer.parseInt(JOptionPane.showInputDialog("Enter the code of course")));
                             break;
 
                         case "3":
